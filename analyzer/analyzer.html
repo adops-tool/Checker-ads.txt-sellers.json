@@ -7,9 +7,8 @@
 </head>
 <body>
   <div class="top-bar">
-    <button id="analyze-current-btn">Analyze Current Site</button>
     <input type="text" id="domain-input" placeholder="Enter domain, e.g. example.com" />
-    <button id="analyze-btn">Analyze</button>
+    <button id="analyze-btn">Analyze Current</button>
   </div>
 
   <div id="stats-bar" class="stats-bar" style="display:none;">
@@ -29,16 +28,16 @@
 
   <div id="workspace" class="workspace" style="display:none;">
     <div class="column">
-      <div class="column-header">ads.txt</div>
+      <div class="column-header"><a id="ads-link" href="#" target="_blank" rel="noopener noreferrer">ads.txt</a></div>
       <div id="ads-content" class="column-body"></div>
     </div>
     <div class="column">
-      <div class="column-header">app-ads.txt</div>
+      <div class="column-header"><a id="appads-link" href="#" target="_blank" rel="noopener noreferrer">app-ads.txt</a></div>
       <div id="appads-content" class="column-body"></div>
     </div>
   </div>
 
-  <div id="status-msg" class="status-msg">Enter a domain and click Analyze to begin.</div>
+  <div id="status-msg" class="status-msg">Enter a domain and click Analyze Current to begin.</div>
 
   <script src="analyzer.js"></script>
 </body>

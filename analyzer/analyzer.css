@@ -114,6 +114,10 @@ body {
   flex-shrink: 0;
 }
 
+.column-header a {
+  color: inherit;
+}
+
 .column-body {
   flex: 1;
   overflow-y: auto;
