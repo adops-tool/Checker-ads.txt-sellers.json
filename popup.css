@@ -50,11 +50,57 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #f8f9fa;
+  background: rgba(11, 44, 45, 0.35);
   z-index: 100;
-  padding: 20px;
+  padding: 12px;
+  display: none;
+  align-items: flex-start;
+}
+
+.settings-card {
+  width: 100%;
+  background: #f8f9fa;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  padding: 12px;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
+  display: flex;
+  max-height: calc(100vh - 65px);
+  overflow-y: auto;
+}
+
+.settings-header { display: flex; justify-content: space-between; align-items: center; }
+.settings-title { margin: 0; font-size: 14px; color: var(--dark-header); }
+
+.settings-switch-group {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.switch-row + .switch-row {
+  border-top: 1px solid #edf0f2;
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+.switch-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--brand-color);
 }
 .settings-group { display: flex; flex-direction: column; gap: 8px; }
 .settings-group label { font-size: 13px; font-weight: 600; color: var(--dark-header); }
