@@ -1,5 +1,9 @@
 const DEFAULT_SELLERS_URL = "https://adwmg.com/sellers.json";
 const CUSTOM_URL_KEY = "custom_sellers_url";
+const AUTO_CLOSE_SETTINGS_KEY = "settings_auto_close_on_tab_switch";
+const PERSIST_FILTER_STATE_KEY = "settings_persist_filter_state";
+const FILTER_ACTIVE_KEY = "settings_filter_active";
+const HIGHLIGHT_OWN_DOMAIN_KEY = "settings_highlight_own_domain";
 
 function getBrandName(url) {
   try {
