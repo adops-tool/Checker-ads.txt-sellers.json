@@ -73,18 +73,6 @@ body {
 
 .settings-header { display: flex; justify-content: space-between; align-items: center; }
 .settings-title { margin: 0; font-size: 14px; color: var(--dark-header); }
-.settings-close-btn {
-  border: 1px solid var(--border-color);
-  background: #fff;
-  color: #666;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  padding: 0;
-  font-size: 14px;
-  line-height: 1;
-}
-.settings-close-btn:hover { background: #f1f3f5; }
 
 .settings-switch-group {
   background: #fff;

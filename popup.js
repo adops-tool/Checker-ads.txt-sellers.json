@@ -452,7 +452,6 @@
   }
 
   settingsToggle.addEventListener("click", toggleSettingsPanel);
-  closeSettingsBtn.addEventListener("click", closeSettingsPanel);
 
   settingsPanel.addEventListener("click", (event) => {
     if (event.target === settingsPanel) closeSettingsPanel();
