@@ -1,7 +1,6 @@
 (() => {
   const domainInput = document.getElementById("domain-input");
   const analyzeBtn = document.getElementById("analyze-btn");
-  const analyzeCurrentBtn = document.getElementById("analyze-current-btn");
   const statsBar = document.getElementById("stats-bar");
   const workspace = document.getElementById("workspace");
   const statusMsg = document.getElementById("status-msg");
@@ -15,6 +14,8 @@
   const appadsTotal = document.getElementById("appads-total");
   const appadsDupes = document.getElementById("appads-dupes");
   const appadsRatio = document.getElementById("appads-ratio");
+  const adsLink = document.getElementById("ads-link");
+  const appadsLink = document.getElementById("appads-link");
 
   /* ---- Helpers ---- */
 
@@ -165,11 +166,12 @@
 
     statusMsg.style.display = "flex";
     statusMsg.textContent = `Fetching files from ${domain}...`;
+    if (adsLink) adsLink.href = `https://${domain}/ads.txt`;
+    if (appadsLink) appadsLink.href = `https://${domain}/app-ads.txt`;
     statsBar.style.display = "none";
     workspace.style.display = "none";
 
     analyzeBtn.disabled = true;
-    analyzeCurrentBtn.disabled = true;
 
     const [adsResult, appadsResult] = await Promise.all([
       fetchFile(domain, "ads.txt"),
@@ -177,7 +179,6 @@
     ]);
 
     analyzeBtn.disabled = false;
-    analyzeCurrentBtn.disabled = false;
 
     if (!adsResult.text && !appadsResult.text) {
       statusMsg.textContent = `Could not fetch files from ${domain}. ads.txt: ${adsResult.error}. app-ads.txt: ${appadsResult.error}.`;
@@ -217,6 +218,11 @@
 
   /* ---- Event Listeners ---- */
 
+  const initialDomain = normalizeDomain(new URLSearchParams(window.location.search).get("domain") || "");
+  if (initialDomain) {
+    domainInput.value = initialDomain;
+  }
+
   analyzeBtn.addEventListener("click", () => {
     runAnalysis(domainInput.value);
   });
@@ -225,29 +231,4 @@
     if (e.key === "Enter") runAnalysis(domainInput.value);
   });
 
-  analyzeCurrentBtn.addEventListener("click", () => {
-    if (typeof chrome !== "undefined" && chrome.tabs) {
-      chrome.tabs.query({ active: true, currentWindow: false }, (tabs) => {
-        if (chrome.runtime.lastError || !tabs || !tabs.length) {
-          statusMsg.textContent = "Could not detect the current site.";
-          return;
-        }
-        // Find a tab with an http(s) URL that is not this analyzer page
-        const tab = tabs.find((t) => t.url && t.url.startsWith("http") && !t.url.includes("analyzer.html"));
-        if (!tab) {
-          statusMsg.textContent = "No suitable browser tab found.";
-          return;
-        }
-        try {
-          const url = new URL(tab.url);
-          domainInput.value = url.hostname;
-          runAnalysis(url.hostname);
-        } catch {
-          statusMsg.textContent = "Could not parse URL from active tab.";
-        }
-      });
-    } else {
-      statusMsg.textContent = "Chrome API not available.";
-    }
-  });
 })();

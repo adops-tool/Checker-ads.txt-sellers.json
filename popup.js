@@ -488,11 +488,27 @@
 
   if (openAnalyzerBtn) {
     openAnalyzerBtn.addEventListener("click", () => {
-      chrome.windows.create({
-        url: "analyzer/analyzer.html",
-        type: "popup",
-        width: 1200,
-        height: 800
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        let analyzerUrl = "analyzer/analyzer.html";
+
+        if (!chrome.runtime.lastError && tabs && tabs.length && tabs[0].url) {
+          try {
+            const activeTabUrl = new URL(tabs[0].url);
+            const domain = activeTabUrl.hostname;
+            if (domain) {
+              analyzerUrl = `analyzer/analyzer.html?domain=${encodeURIComponent(domain)}`;
+            }
+          } catch {
+            analyzerUrl = "analyzer/analyzer.html";
+          }
+        }
+
+        chrome.windows.create({
+          url: analyzerUrl,
+          type: "popup",
+          width: 1200,
+          height: 800
+        });
       });
     });
   }
