@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "adWMG Checker: ads.txt/sellers.json",
+  "version": "7.0.0",
+  "description": "View and filter ads.txt / app-ads.txt files. Automatically matches Company sellers | by OstinUA",
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Lines Checker"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/ads.txt",
+        "*://*/app-ads.txt",
+        "*://*/*/ads.txt",
+        "*://*/*/app-ads.txt"
+      ],
+      "js": ["overlay.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
