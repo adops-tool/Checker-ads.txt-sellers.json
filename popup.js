@@ -29,6 +29,7 @@
   const managerBadgeEl = document.getElementById("manager-badge");
 
   const openValidatorBtn = document.getElementById("open-validator-btn");
+  const openAnalyzerBtn = document.getElementById("open-analyzer-btn");
 
   let adsData = { text: "", url: "", date: null };
   let appAdsData = { text: "", url: "", date: null };
@@ -481,6 +482,17 @@
         type: "popup",
         width: 1050,
         height: 900
+      });
+    });
+  }
+
+  if (openAnalyzerBtn) {
+    openAnalyzerBtn.addEventListener("click", () => {
+      chrome.windows.create({
+        url: "analyzer/analyzer.html",
+        type: "popup",
+        width: 1200,
+        height: 800
       });
     });
   }

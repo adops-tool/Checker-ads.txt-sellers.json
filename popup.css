@@ -63,9 +63,9 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  padding: 12px;
+  padding: 10px;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   display: flex;
   max-height: calc(100vh - 65px);
   overflow-y: auto;
@@ -102,20 +102,22 @@ body {
   height: 16px;
   accent-color: var(--brand-color);
 }
-.settings-group { display: flex; flex-direction: column; gap: 8px; }
+.settings-group { display: flex; flex-direction: column; gap: 6px; }
 .settings-group label { font-size: 13px; font-weight: 600; color: var(--dark-header); }
-.settings-panel input { background: #fff; border: 1px solid var(--border-color); color: var(--text-color); padding: 10px; font-size: 13px; border-radius: 4px; width: 100%; }
+.settings-panel input { background: #fff; border: 1px solid var(--border-color); color: var(--text-color); padding: 7px 8px; font-size: 12px; border-radius: 4px; width: 100%; }
 
-.settings-actions-inline { display: flex; gap: 10px; margin-top: 2px; }
-.settings-actions-inline button { flex: 1; background: var(--brand-color); color: #fff; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 13px; }
-.settings-actions-inline button#force-refresh-cache { background: #2b5e5e; }
-.settings-actions-inline button#force-refresh-cache:hover { background: #3a7575; }
-.settings-actions-inline button:disabled { opacity: 0.6; cursor: not-allowed; }
+.settings-url-row { display: flex; gap: 6px; align-items: center; }
+.settings-url-row input { flex: 1; min-width: 0; }
+.settings-url-row button { flex-shrink: 0; background: var(--brand-color); color: #fff; border: none; padding: 7px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; white-space: nowrap; }
+.settings-url-row button#force-refresh-cache { background: #2b5e5e; }
+.settings-url-row button#force-refresh-cache:hover { background: #3a7575; }
+.settings-url-row button:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .settings-divider { border: none; border-top: 1px solid var(--border-color); margin: 5px 0; width: 100%; }
 
-.tool-btn { background: #4a6fa5; color: #fff; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 13px; width: 100%; transition: 0.2s;}
+.tool-btn { background: #4a6fa5; color: #fff; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px; width: 100%; transition: 0.2s;}
 .tool-btn:hover { background: #395785; }
+.tool-btn + .tool-btn { margin-top: 4px; }
 
 .line-count { font-size: 10px; background: rgba(255, 255, 255, 0.2); padding: 1px 5px; border-radius: 8px; font-weight: normal; margin-left: 5px; }
 
