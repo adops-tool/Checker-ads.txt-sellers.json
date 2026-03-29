@@ -34,9 +34,10 @@
         <h3 class="settings-title">Extension Settings</h3>
       </div>
 
-      <div class="settings-group">
-        <label for="sellers-url-input">Sellers.json URL</label>
+      <div class="settings-url-row">
         <input type="text" id="sellers-url-input" placeholder="https://adwmg.com/sellers.json" />
+        <button id="save-settings">Save</button>
+        <button id="force-refresh-cache" title="Force sync: bypass cache">Clear Cache & Sync</button>
       </div>
 
       <div class="settings-group settings-switch-group">
@@ -52,11 +53,14 @@
           <span>Highlight current domain in sellers list</span>
           <input id="highlight-own-domain-input" type="checkbox" />
         </label>
-      </div>
-
-      <div class="settings-actions-inline">
-        <button id="save-settings">Save Settings</button>
-        <button id="force-refresh-cache" title="Force sync: bypass cache">Clear Cache & Sync</button>
+        <label class="switch-row" for="strict-domain-input">
+          <span>Strict Domain Matching</span>
+          <input id="strict-domain-input" type="checkbox" />
+        </label>
+        <label class="switch-row" for="auto-refresh-input">
+          <span>Auto-refresh cache on open</span>
+          <input id="auto-refresh-input" type="checkbox" />
+        </label>
       </div>
 
       <hr class="settings-divider" />
@@ -64,6 +68,7 @@
       <div class="settings-group">
         <label>Additional Tools</label>
         <button id="open-validator-btn" class="tool-btn">Open Line Validator Window</button>
+        <button id="open-analyzer-btn" class="tool-btn">Open File Analyzer</button>
       </div>
     </div>
   </div>

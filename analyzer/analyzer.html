@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>File Analyzer — ads.txt vs app-ads.txt</title>
+  <link rel="stylesheet" href="analyzer.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <button id="analyze-current-btn">Analyze Current Site</button>
+    <input type="text" id="domain-input" placeholder="Enter domain, e.g. example.com" />
+    <button id="analyze-btn">Analyze</button>
+  </div>
+
+  <div id="stats-bar" class="stats-bar" style="display:none;">
+    <div class="stat-group">
+      <h4>ads.txt</h4>
+      <span id="ads-total" class="stat-item">Lines: —</span>
+      <span id="ads-dupes" class="stat-item dupe">Duplicates: —</span>
+      <span id="ads-ratio" class="stat-item">DIRECT / RESELLER: —</span>
+    </div>
+    <div class="stat-group">
+      <h4>app-ads.txt</h4>
+      <span id="appads-total" class="stat-item">Lines: —</span>
+      <span id="appads-dupes" class="stat-item dupe">Duplicates: —</span>
+      <span id="appads-ratio" class="stat-item">DIRECT / RESELLER: —</span>
+    </div>
+  </div>
+
+  <div id="workspace" class="workspace" style="display:none;">
+    <div class="column">
+      <div class="column-header">ads.txt</div>
+      <div id="ads-content" class="column-body"></div>
+    </div>
+    <div class="column">
+      <div class="column-header">app-ads.txt</div>
+      <div id="appads-content" class="column-body"></div>
+    </div>
+  </div>
+
+  <div id="status-msg" class="status-msg">Enter a domain and click Analyze to begin.</div>
+
+  <script src="analyzer.js"></script>
+</body>
+</html>
