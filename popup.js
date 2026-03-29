@@ -11,6 +11,7 @@
 
   const settingsToggle = document.getElementById("settings-toggle");
   const settingsPanel = document.getElementById("settings-panel");
+  const closeSettingsBtn = document.getElementById("close-settings");
   const urlInput = document.getElementById("sellers-url-input");
   const autoCloseSettingsInput = document.getElementById("auto-close-settings-input");
   const persistFilterInput = document.getElementById("persist-filter-input");
